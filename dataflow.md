@@ -9,9 +9,9 @@ flowchart LR
             SourceDescription("`Sources are top level places we find data/files/text to _scan_`")
             subgraph ExampleSources
                 GitSource["git Source <img src='https://git-scm.com/images/logo@2x.png' style='background-color:white'/>"]
-                GitHubSource["GitHub Source <img src='https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png' />"]
-                FilesystemSource["File System Source <img src='https://cdn-icons-png.freepik.com/512/8602/8602255.png' />"]
-                PostmanSource["Postman Source <img src='https://voyager.postman.com/logo/postman-logo-icon-orange.svg' />"]
+                GitHubSource["GitHub Source <img src='https://forager.trufflesecurity.com/assets/github-fern-4f595c91.svg' style='background-color:white'/>"]
+                FilesystemSource["File System Source <img src='https://user-images.githubusercontent.com/664179/39915797-245107d6-5509-11e8-82e4-6421456bf7eb.png' style='background-color:white' />"]
+                PostmanSource["Postman Source <img src='https://user-images.githubusercontent.com/49151885/96122371-ad293c00-0ef1-11eb-9e1d-ef148ee03d73.png' />"]
             end
         end
 
@@ -42,9 +42,9 @@ Match chunks to detectors based on the presence of specific keywords in the chun
                 DetectorDescriptionText["`Detectors are the bits that actually check for the existence of a secret in a chunk, and (optionally) verify it`"]
                 subgraph Detectors[Example Detectors]
                     direction TB
-                    AwsDetector["AWS Detector <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVj0jisdcvxnjyylo9HUKwS1p89RniwBu9Ew&s' style='background-color:white'/>"]
-                    ZapierDetector["Zapier Detector <img src='https://cdn.iconscout.com/icon/free/png-256/free-zapier-logo-icon-download-in-svg-png-gif-file-formats--company-brand-world-logos-vol-4-pack-icons-282557.png' style='background-color:white'/>"]
-                    TwilioDetector["Twilio Detector <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG0S-NoPx0UwcGqbBbWTtMOcwftpFXQmphxA&s' style='background-color:white'/>"]
+                    AwsDetector["AWS Detector <img src='https://forager.trufflesecurity.com/assets/aws-mark-b70163d1.svg' style='background-color:white'/>"]
+                    AzureDetector["Azure Detector <img src='https://forager.trufflesecurity.com/assets/azure-mark-d5533763.svg' style='background-color:white'/>"]
+                    TwilioDetector["Twilio Detector <img src='http://forager.trufflesecurity.com/assets/twilio-mark-df166a11.svg' style='background-color:white'/>"]
                 end
             end    
             subgraph DetectorResponsibility[" "]
