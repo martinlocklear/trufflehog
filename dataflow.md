@@ -140,7 +140,3 @@ results -- usually the command line.`"]
     results --> Dispatcher --> output
 ```
 
-## Concurrency
-
-
-
