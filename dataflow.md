@@ -10,10 +10,7 @@ flowchart LR
 
 Breaking up the locations that we are looking _for_ secrets into small chunks`"]
 
-    DetectorMatching{Chunk
-    to
-    Detector
-    Matching}
+    DetectorMatching{Chunk<br/>to<br/>Detector<br/>Matching}
     
     SecretDetection["`**Secret Detection**
 
@@ -107,19 +104,20 @@ subgraph Detector
     
     subgraph DetectorResponsibility[" "]
         direction LR
-        
+
+        De-Dupe-Detectors["`**De-Dupe-Detectors**
+
+If multiple detectors keyword-match on the same chunk, we have some logic that chooses which detector to actually run`"]
+
         CollectMatches["`**Collect Matches**
-        
-        Detector specific regexes are run against the matched chunks, resulting in unverified secrets`"]
+
+Detector specific regexes are run against the matched chunks, resulting in unverified secrets`"]
         VerifyMatches["`**Verify Matches**
+
+Optionally, observed unverified secrets are verified by attempting to use them against live services`"]
         
-        Optionally, observed unverified secrets are verified by attempting to use them against live services`"]
-        DedupMatches["`**Dedup Matches**
-        
-        The same secret could be found in several places, so we dedup before verying against live services. There's also come caching that happens here`"]
-        
-        CollectMatches -- regex matched chunks --> DedupMatches
-        DedupMatches -- deduped matches --> VerifyMatches
+        De-Dupe-Detectors -- deduped detectors --> CollectMatches
+        CollectMatches -- regex matched chunks --> VerifyMatches
     end
     
     style DetectorDescription fill:#89553e
