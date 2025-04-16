@@ -27,7 +27,7 @@ sequenceDiagram
     and 
         Note over ScannerWorkers: Decode chunks and find matching detectors
         ScannerWorkers->>DetectorWorkers: e.detectableChunksChan<br /><- detectableChunk
-        Note over ScannerWorkers: When multiple detectors match on the<br />same chunk we have to decided _which_<br />detectors to run on the chunk
+        Note over ScannerWorkers: When multiple detectors match on the<br />same chunk we have to decided _which_<br />detector will verify found secrets
         ScannerWorkers->>VerificationOverlapWorkers: e.verificationOverlapChunksChan<br /><- verificationOverlapChunk
     and
         Note over VerificationOverlapWorkers: Decide which detectors to run on that chunk

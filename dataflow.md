@@ -43,7 +43,6 @@ flowchart TD
         UnitDescription("`**(2)** Units are natural subdivisions of Sources, but still quite large`")
         FilesystemUnit[Directory]
         GitUnit[Git Repository]
-        PostmanUnit[Workspace]
     end
 
     subgraph Chunk
@@ -59,13 +58,12 @@ flowchart TD
     UnitDescription -- further decomposed into --> ChunkDescription
 
 
-    GitSource --> GitUnit
+    GitSource -- cloned locally --> GitUnit
     GitHubSource -- cloned locally --> GitUnit
-    PostmanSource --> PostmanUnit
+    PostmanSource -- Postman sources\ndon't use units --> PostmanChunk
     FilesystemSource --> FilesystemUnit
 
     GitUnit -- git log -p --> GitRepositoryChunk
-    PostmanUnit --> PostmanChunk
     FilesystemUnit --> FilesystemChunk
 
     style SourceDescription fill:#89553e
@@ -107,7 +105,7 @@ subgraph Detector
 
         De-Dupe-Detectors["`**De-Dupe-Detectors**
 
-If multiple detectors keyword-match on the same chunk, we have some logic that chooses which detector to actually run`"]
+If multiple detectors keyword-match on the same chunk, we have some logic that chooses which detector will verify found secret (so we don't duplicate verification requests to externa APIs)`"]
 
         CollectMatches["`**Collect Matches**
 
